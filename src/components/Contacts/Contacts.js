@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { TiUserDelete } from 'react-icons/ti';
-import { selectByName, selectContacts, selectFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { fetchContacts, deleteContact } from 'redux/operations';
 import {
   StyledBtnDelete,
