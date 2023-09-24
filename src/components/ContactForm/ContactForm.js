@@ -9,7 +9,7 @@ import {
 } from './ContactForm.styled';
 import { Section } from 'components/Section/Section';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 
 const schema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').required('A Name is required'),

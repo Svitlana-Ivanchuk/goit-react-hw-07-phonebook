@@ -6,6 +6,7 @@ export const StyledList = styled.ul`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 24px;
+  margin-top: 12px;
 `;
 
 export const StyledContact = styled.li`
@@ -19,7 +20,11 @@ export const StyledContact = styled.li`
   text-transform: capitalize;
   color: #4d5ae5;
 `;
-
+export const StyledImages = styled.img`
+  margin-right: 8px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+`;
 export const StyledBtnDelete = styled.button`
   font-family: inherit;
   font-weight: 400;
