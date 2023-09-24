@@ -10,7 +10,7 @@ export const Contact = ({ contact }) => {
     <>
       <StyledImages src={contact.createdAt} alt={contact.name} width="45" />
       {contact.name} : {contact.number}
-      <StyledBtnDelete onClick={handleDelete}>
+      <StyledBtnDelete onClick={() => handleDelete(contact.id)}>
         <TiUserDelete></TiUserDelete>
       </StyledBtnDelete>
     </>
