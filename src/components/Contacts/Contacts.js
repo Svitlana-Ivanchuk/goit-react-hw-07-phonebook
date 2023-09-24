@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { TiUserDelete } from 'react-icons/ti';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectByName, selectContacts, selectFilter } from 'redux/selectors';
 import { fetchContacts, deleteContact } from 'redux/operations';
 import {
   StyledBtnDelete,
@@ -13,11 +13,8 @@ import {
 export const Contacts = () => {
   const dispatch = useDispatch();
 
-  const filter = useSelector(getFilter);
-  const { items, isLoading, error } = useSelector(getContacts);
-  const handleDelete = contactId => {
-    dispatch(deleteContact(contactId));
-  };
+  const filter = useSelector(selectFilter);
+  const { items, isLoading, error } = useSelector(selectContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -29,8 +26,6 @@ export const Contacts = () => {
     }
     return elem.name.toLowerCase().includes(filter.toLowerCase());
   });
-
-  console.log(items);
 
   return (
     <>
@@ -45,7 +40,9 @@ export const Contacts = () => {
               width="45"
             />
             {contact.name} : {contact.number}
-            <StyledBtnDelete onClick={() => handleDelete(contact.id)}>
+            <StyledBtnDelete
+              onClick={() => dispatch(deleteContact(contact.id))}
+            >
               <TiUserDelete></TiUserDelete>
             </StyledBtnDelete>
           </StyledContact>

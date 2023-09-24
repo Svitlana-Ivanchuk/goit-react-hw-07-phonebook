@@ -22,6 +22,7 @@ const schema = Yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+
   const handleAddContact = newContact => {
     dispatch(addContact(newContact));
     console.log(newContact);
