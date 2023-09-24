@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { TiUserDelete } from 'react-icons/ti';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { fetchContacts, deleteContact } from 'redux/operations';
+
 import {
-  StyledBtnDelete,
-  StyledContact,
-  StyledImages,
-  StyledList,
-} from './Contacts.styled';
+  selectItems,
+  selectFilter,
+  selectIsLoading,
+  selectError,
+  selectContacts,
+} from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
+import { StyledContact, StyledList } from './ContactsList.styled';
+import { Contact } from 'components/Contact/Contact';
 
-export const Contacts = () => {
-  const dispatch = useDispatch();
-
+export const ContactsList = () => {
   const filter = useSelector(selectFilter);
   const { items, isLoading, error } = useSelector(selectContacts);
+  //const items = useSelector(selectItems);
+  //const isLoading = useSelector(selectIsLoading);
+  //const error = useSelector(selectError);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -34,17 +38,7 @@ export const Contacts = () => {
         {error && <p>{error}</p>}
         {selectedName.map(contact => (
           <StyledContact key={contact.id}>
-            <StyledImages
-              src={contact.createdAt}
-              alt={contact.name}
-              width="45"
-            />
-            {contact.name} : {contact.number}
-            <StyledBtnDelete
-              onClick={() => dispatch(deleteContact(contact.id))}
-            >
-              <TiUserDelete></TiUserDelete>
-            </StyledBtnDelete>
+            <Contact contact={contact} />
           </StyledContact>
         ))}
       </StyledList>
