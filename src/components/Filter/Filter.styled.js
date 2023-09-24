@@ -17,3 +17,8 @@ export const StyledInput = styled.input`
   padding: 4px;
   height: 36px;
 `;
+
+export const StyledCounts = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;

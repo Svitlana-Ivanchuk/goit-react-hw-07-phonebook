@@ -32,3 +32,11 @@ export const StyledBtnDelete = styled.button`
     background-color: #404bbf;
   }
 `;
+export const StyledCheck = styled.input`
+  width: 16px;
+  height: 16px;
+  background-color: #404bbf;
+`;
+export const StyledContact = styled.div`
+  margin-left: 4px;
+`;

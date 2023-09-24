@@ -9,3 +9,12 @@ export const selectItems = state => state.contacts.items;
 export const selectCount = createSelector([selectItems], items => {
   return items.length;
 });
+
+export const selectCountOnLine = createSelector([selectItems], items => {
+  return items.reduce((acc, item) => {
+    if (item.onLine === true) {
+      return acc + item.onLine;
+    }
+    return acc;
+  }, 0);
+});
