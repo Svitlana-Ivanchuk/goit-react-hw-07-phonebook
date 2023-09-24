@@ -25,7 +25,6 @@ export const ContactForm = () => {
 
   const handleAddContact = newContact => {
     dispatch(addContact(newContact));
-    console.log(newContact);
   };
 
   return (
